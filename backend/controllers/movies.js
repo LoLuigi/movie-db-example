@@ -10,7 +10,7 @@ class MoviesController {
 
     // return full data set if no batch size is provided
     if (!size && !page) {
-      res.json({ data });
+      res.json(data);
       return;
     }
 
@@ -23,7 +23,7 @@ class MoviesController {
 
     const batch = data.slice(start, end);
 
-    res.json({ data: batch });
+    res.json(batch);
     return;
   }
 
