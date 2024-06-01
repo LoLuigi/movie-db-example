@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 
 import serviceRouter from './routes/service.js';
@@ -14,6 +15,7 @@ const app = express();
 // apply middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // apply routes/controllers
 
