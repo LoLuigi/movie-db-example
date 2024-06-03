@@ -1,0 +1,17 @@
+.column1{
+    position:relative;
+    float: left;
+}
+.column2{
+    color:#577B8D;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 300px;
+    height: fit-content;
+}
+.wrapper1{
+    margin-top: 0px;
+}
+.wrapper2{
+    max-width: 100px;
+}
