@@ -9,6 +9,8 @@ import List from '../components/List';
 import ListItem from '../components/ListItem';
 import Mycomp from '../components/Mycomp';
 
+
+
 export async function loader() {
   const movies = await MovieAPI.getAllBatch(1, 100);
   return { movies };
@@ -23,9 +25,13 @@ const MoviesPage = () => {
         {
           movies.map((movie) => (
             <Mycomp key={`movie-list-item-${movie.Id}`}>
+              <div>
+                <img className='Moviepicture' src={movie.Poster} alt="Movie Poster"></img>
+              </div>
               <Link to={`movies/${movie.Id}`}>
                 {movie.Title} - {movie.Director}
               </Link>
+              <p class="p" > Came out in {movie.Year} and had {movie.Votes} votes.</p>
             </Mycomp>
           ))
         }
