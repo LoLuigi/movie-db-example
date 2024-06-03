@@ -7,6 +7,7 @@ import MovieAPI from '../apis/MovieAPI';
 import Page from '../components/Page';
 import List from '../components/List';
 import ListItem from '../components/ListItem';
+import Mycomp from '../components/Mycomp';
 
 export async function loader() {
   const movies = await MovieAPI.getAllBatch(1, 100);
@@ -21,11 +22,11 @@ const MoviesPage = () => {
       <List>
         {
           movies.map((movie) => (
-            <ListItem key={`movie-list-item-${movie.Id}`}>
+            <Mycomp key={`movie-list-item-${movie.Id}`}>
               <Link to={`movies/${movie.Id}`}>
                 {movie.Title} - {movie.Director}
               </Link>
-            </ListItem>
+            </Mycomp>
           ))
         }
       </List>
