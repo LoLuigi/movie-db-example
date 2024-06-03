@@ -28,10 +28,11 @@ const MoviesPage = () => {
               <div>
                 <img className='Moviepicture' src={movie.Poster} alt="Movie Poster"></img>
               </div>
+              <p className="p">{movie.Title} ({movie.Year=movie.Year.substring(0, movie.Year.length - 1)}) - {movie.Director}</p>
+              <p className="p" > Came out in {movie.Year} and had {movie.Votes} votes.</p>
               <Link to={`movies/${movie.Id}`}>
-                {movie.Title} - {movie.Director}
+              more
               </Link>
-              <p class="p" > Came out in {movie.Year} and had {movie.Votes} votes.</p>
             </Mycomp>
           ))
         }
