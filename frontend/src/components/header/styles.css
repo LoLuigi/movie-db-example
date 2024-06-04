@@ -1,9 +1,9 @@
 .container{
   padding-left: 0;
-  background-color: white;
-  color: #240750;
+  background-color: var(--bg);
+  color: var(--title);
 }
 .navbar-brand{
-  color: #240750;
-  background-color: white;
+  color: var(--title);
+  background-color: var(--bg);
 }

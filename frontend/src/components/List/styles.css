@@ -4,5 +4,6 @@
   overflow-y: scroll;
   max-height: 800px;
   background-color: white;
-  color: #240750;
+  color: var(--title);
+  scrollbar-color: var(--bg);
 }

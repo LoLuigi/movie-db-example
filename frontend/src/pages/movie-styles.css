@@ -3,15 +3,18 @@
     float: left;
 }
 .column2{
-    color:#577B8D;
+    color:var(--text1);
     margin-left: 10px;
-    margin-top: 20px;
     width: 300px;
     height: fit-content;
+    
 }
-.wrapper1{
-    margin-top: 0px;
+li {
+    color: var(--text1);
 }
 .wrapper2{
     max-width: 100px;
+}
+.movie-db-list{
+    background-color: var(--bg);
 }

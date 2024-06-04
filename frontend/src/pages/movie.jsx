@@ -5,6 +5,8 @@ import MovieAPI from '../apis/MovieAPI';
 
 import Page from '../components/Page';
 import './movie-styles.css'
+import Picture from '../components/Picture';
+import List from '../components/List';
 
 
 export async function loader({ params }) {
@@ -20,7 +22,7 @@ const MoviePage = () => {
     <Page title={`${movie.Title} (${movie.Year.substring(0, movie.Year.length - 2)})`}>
       <div className='wrapper'>
         <div className='column1'>
-          <img className='Moviepicture' src={movie.Poster} alt="Movie Poster"></img>
+        <Picture src={movie.Poster}/>
         </div>
         <div className='column2'>
           <p>{movie.Description}</p>
