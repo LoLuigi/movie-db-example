@@ -5,7 +5,8 @@ import MovieAPI from '../apis/MovieAPI';
 
 import Page from '../components/Page';
 import './movie-styles.css'
-import Picture from '../components/Picture';
+
+import Popup from '../components/Popup';
 import List from '../components/List';
 
 
@@ -21,9 +22,8 @@ const MoviePage = () => {
   return (
     <Page title={`${movie.Title} (${movie.Year.substring(0, movie.Year.length - 2)})`}>
       <div className='wrapper'>
-        <div className='column1'>
-        <Picture src={movie.Poster}/>
-        </div>
+        <Popup content={movie.Poster
+        }></Popup>
         <div className='column2'>
           <p>{movie.Description}</p>
           <li>Duration: {movie["Duration (min)"]} min</li>

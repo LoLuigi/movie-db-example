@@ -14,7 +14,7 @@ import Picture from '../components/Picture';
 
 
 export async function loader() {
-  const movies = await MovieAPI.getAllBatch(1, 150);
+  const movies = await MovieAPI.getAllBatch(1, 250);
   const categorys = {};
   movies.forEach((movie) => {
     const {Genre,Id} = movie

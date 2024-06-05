@@ -1,5 +1,7 @@
 .Moviepicture {
     border: 10px solid var(--text2);
+    width: 160px;
+    height: 230px;
 }
 .Moviepicture:hover{
     border: 10px solid var(--text1);

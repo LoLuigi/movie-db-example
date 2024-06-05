@@ -2,8 +2,16 @@
   list-style: none;
   padding-left: 0;
   overflow-y: scroll;
-  max-height: 800px;
+  max-height: 50rem;
   background-color: white;
   color: var(--title);
-  scrollbar-color: var(--bg);
+  scrollbar-color: var(--bg)
+}
+.movie-db-list{
+  background-color: var(--text1);
+  display: flex;
+  flex-flow: row nowrap;
+}
+.movie-db-props-children{
+  margin-right: .75rem;
 }
