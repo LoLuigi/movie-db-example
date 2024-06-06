@@ -10,8 +10,20 @@
     
 }
 li {
-    color: var(--bg);
+    color: var(--text2);
 }
-.wrapper2{
-    max-width: 100px;
+.wrapper2 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    background-color: var(--bg);
+    color: var(--text1);
+    max-width:  80px;
+}
+
+.wrapper1 {
+    display: flex;
+    background-color: var(--bg);
+    color: var(--text1);
+    flex-flow: row nowrap;
+    max-width: 30rem;
 }

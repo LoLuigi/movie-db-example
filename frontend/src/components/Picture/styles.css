@@ -2,7 +2,9 @@
     border: 10px solid var(--text2);
     width: 160px;
     height: 230px;
+    border-radius: 0.5rem;
 }
 .Moviepicture:hover{
     border: 10px solid var(--text1);
+    border-radius: 0.5rem;
 }

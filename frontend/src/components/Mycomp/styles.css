@@ -1,4 +1,4 @@
-.mov1{
+.Moviepicture{
     position: relative;
     float: left;
 }
@@ -10,14 +10,6 @@
 .p2{
     color: var(--text2);
     margin-bottom: 15px;
-}
-
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    background-color: var(--bg);
-    color: var(--text2);
-    max-width:  80px;
 }
 
 .box {

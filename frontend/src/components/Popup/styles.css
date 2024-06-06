@@ -1,4 +1,58 @@
 .Moviepicture.big{
-    width: 500px;
-    height: 720px;
+    width: 300px;
+    height: 420px;
+    align-self: center;
+}
+.column2{
+    height: fit-content;
+    width: fit-content;
+}
+.modal-header{
+    border-bottom: 0rem solid var(--bg);
+}
+.modal-footer{
+    border-top: 0rem solid var(--bg);
+}
+.modal-body{
+    height: fit-content;
+    width: fit-content;
+}
+.modal-content{
+    background-color: var(--bg);
+}
+.closed{
+    max-height: fit-content;
+    max-width: fit-content;
+}
+.btn-success{
+    --bs-btn-bg: var(--bg);
+    --bs-btn-color: var(--bg);
+    --bs-btn-border-color:var(--bg);
+    --bs-btn-hover-color: var(--bg);
+    --bs-btn-hover-bg: var(--bg);
+    --bs-btn-hover-border-color: var(--bg);
+    --bs-btn-focus-shadow-rgb: var(--bg);
+    --bs-btn-active-color: var(--bg);
+    --bs-btn-active-bg: var(--bg);
+    --bs-btn-active-border-color: var(--bg);
+    --bs-btn-disabled-color: var(--bg);
+    --bs-btn-disabled-bg: var(--bg);
+    --bs-btn-disabled-border-color: var(--bg);
+}
+.btn-secondary{
+    --bs-btn-color: var(--bg);
+    --bs-btn-bg: var(--text2);
+    --bs-btn-border-color: var(--text2);
+    --bs-btn-hover-color: var(--bg);
+    --bs-btn-hover-bg: var(--text1);
+    --bs-btn-hover-border-color: var(--text1);
+    --bs-btn-focus-shadow-rgb: var(--text2);
+    --bs-btn-active-color: var(--text1);
+    --bs-btn-active-bg: var(--text2);
+    --bs-btn-active-border-color: var(--text1);
+    --bs-btn-disabled-color: var(--text1);
+    --bs-btn-disabled-bg: var(--text2);
+    --bs-btn-disabled-border-color: var(--text1);
+    height: min-content;
+    width: min-content;
 }
