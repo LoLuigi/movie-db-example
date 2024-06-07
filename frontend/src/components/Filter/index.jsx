@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import React, { useEffect } from "react";
+import ReactDom from 'react-dom';
 
 // import Form from 'react-bootstrap/Form';
 
@@ -81,6 +82,12 @@ const Filter = (props) => {
         }
     }, [selected,props.onChange])
 
+    const onReset = (()=> {
+        setSelected("");
+        setAllOptions([])
+        props.onChange()
+    })
+
     return(
         <div>
             {filters.length > 0 && (
@@ -95,6 +102,7 @@ const Filter = (props) => {
             )
             }
             {allOptions.length > 0&& (
+            <>
             <select onChange={onFilterValueChange}>
                 <option selected disabled value="">Select an Option</option>
                 {
@@ -104,6 +112,8 @@ const Filter = (props) => {
                     <option value={filt}>{filt}</option>
                 )})}
             </select>
+            <button onClick={onReset}>Reset</button>
+            </>
             )
             }
 

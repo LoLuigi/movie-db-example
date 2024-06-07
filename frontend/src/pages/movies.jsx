@@ -83,9 +83,7 @@ const MoviesPage = () => {
                 .map((movie) => {
                   // console.log(movie)
                   return (
-                    <div>
-                      <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
-                    </div>
+                    <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
                   );
                 })
               }

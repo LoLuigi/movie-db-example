@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import serviceRouter from './routes/service.js';
 import moviesRouter from './routes/movies.js';
+import reviewsRouter from './routes/reviews.js';
 
 // load environment variables
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(cors());
 
 app.use('/movies', moviesRouter);
 app.use('/service', serviceRouter);
+app.use('/reviews', reviewsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

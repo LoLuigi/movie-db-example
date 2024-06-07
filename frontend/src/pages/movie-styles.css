@@ -4,21 +4,37 @@
 }
 .column2{
     color:var(--text2);
-    margin-left: 10px;
-    width: 300px;
+    margin-left: 1rem;
     height: fit-content;
+    border-width: 0.125rem;
+    border-color: var(--text2);
     
 }
 li {
     color: var(--text2);
 }
 .wrapper2 {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    display: flex;
+    flex-direction: row;
     background-color: var(--bg);
     color: var(--text1);
-    max-width:  80px;
 }
+.title {
+    color: var(--text1);
+    margin-bottom: 0.25rem;
+}
+.review{
+    color:var(--text2);
+    margin-left:2rem;
+    height: fit-content;
+    border-width: 0.125rem;
+    border-color: var(--text2);
+}
+.reviewText{
+    margin-top: 0.25rem;
+    
+}
+
 
 .wrapper1 {
     display: flex;
@@ -26,4 +42,5 @@ li {
     color: var(--text1);
     flex-flow: row nowrap;
     max-width: 30rem;
+
 }

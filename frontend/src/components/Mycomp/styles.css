@@ -20,4 +20,12 @@ padding: 20px;
 font-size: 150%;
 }
 
+.movie-db-props-children{
+    margin-right: .75rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex:none;
+    align-self: flex-start;
+    max-width: 10rem;
+}
 

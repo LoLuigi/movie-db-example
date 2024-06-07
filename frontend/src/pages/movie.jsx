@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import MovieAPI from '../apis/MovieAPI';
+import ReviewAPI from '../apis/ReviewAPI';
 
 import Page from '../components/Page';
 import './movie-styles.css'
@@ -12,19 +13,24 @@ import Popup from '../components/Popup';
 
 export async function loader({ params }) {
   const movies = await MovieAPI.getAllBatch(1, 250);
+  const reviews = await ReviewAPI.getAll();
   const movie = movies.find((movie) => movie.Id === params.movieId);
-  return { movie };
+  const review = reviews.find((review) => review.Id == params.movieId);
+  return { movie, review };
 }
 
 const MoviePage = () => {
   const { movie } = useLoaderData();
+  const {review} = useLoaderData();
   console.log({ movie });
+  console.log({review})
   return (
     <Page title={`${movie.Title} (${movie.Year.substring(0, movie.Year.length - 2)})`}>
       <div className='wrapper1'>
         <Popup content={movie.Poster
         }></Popup>
         <div className='column2'>
+          <p className='title'>Description:</p>
           <p>{movie.Description}</p>
           <li>Duration: {movie["Duration (min)"]} min</li>
           <li>Genre: {movie.Genre}</li>
@@ -33,7 +39,10 @@ const MoviePage = () => {
         </div>
       </div>
       <div className='wrapper2'>
-        {movie.Director}
+        <div className='column1'>
+          {movie.Director}
+        </div>
+        <div className='review'> <p className='title'> {review["Review Title"]} </p> <p className='reviewText'>{review.Review}</p></div>
       </div>
     </Page>
   );
