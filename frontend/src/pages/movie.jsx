@@ -6,16 +6,17 @@ import ReviewAPI from '../apis/ReviewAPI';
 
 import Page from '../components/Page';
 import './movie-styles.css'
+import './themes.css'
 
 import Popup from '../components/Popup';
 // import List from '../components/List';
 
 
 export async function loader({ params }) {
-  const movies = await MovieAPI.getAllBatch(1, 250);
-  const reviews = await ReviewAPI.getAll();
-  const movie = movies.find((movie) => movie.Id === params.movieId);
-  const review = reviews.find((review) => review.Id == params.movieId);
+  // const movies = await MovieAPI.getAllBatch(1, 250);
+  const movie = await MovieAPI.getMovie(params.movieId);
+  // const movie = await movies.find((movie) => movie.Id === params.movieId);
+  const review = await ReviewAPI.getReview(params.movieId);
   return { movie, review };
 }
 

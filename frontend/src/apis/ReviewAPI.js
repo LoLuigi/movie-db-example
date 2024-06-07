@@ -11,11 +11,13 @@ async function getAll() {
 }
 
 async function getReview(reviewId) {
-  throw new Error('Not yet implemented');
+  const url = `${baseUrl}?id=${reviewId}`;
+  return jsonFetch(url);
 }
 
 const API = {
   getAll,
+  getReview,
   jsonFetch,
 };
 

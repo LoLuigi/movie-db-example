@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
 
 import MovieAPI from '../apis/MovieAPI';
-
+import './themes.css'
 
 import Page from '../components/Page';
 import List from '../components/List';

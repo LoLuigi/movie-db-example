@@ -6,11 +6,17 @@ class MoviesController {
     console.log('MoviesController.getAll');
     const data = await readCsvFile('/data/movies.csv');
 
-    const { size, page } = req.query;
+    const { size, page, id } = req.query;
 
     // return full data set if no batch size is provided
-    if (!size && !page) {
+    if (!size && !page && !id) {
       res.json(data);
+      return;
+    }
+
+    if(id) {
+      const movie = data.find(item => item.Id === id);
+      res.json(movie);
       return;
     }
 

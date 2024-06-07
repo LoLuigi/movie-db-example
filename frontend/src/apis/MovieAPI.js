@@ -16,12 +16,14 @@ async function getAllBatch(page, size) {
 }
 
 async function getMovie(movieId) {
-  throw new Error('Not yet implemented');
+  const url = `${baseUrl}?id=${movieId}`;
+  return jsonFetch(url)
 }
 
 const API = {
   getAll,
   getAllBatch,
+  getMovie,
   jsonFetch,
 };
 
