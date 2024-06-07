@@ -1,28 +1,28 @@
-.theme1 {
+:root {
   --title: #240750;
   --text1: #344C64;
   --text2: #577B8D;
   --bg: #b3f0ec;
   --bs-tertiary-bg-rgb: var(--bg);
 }
-.theme2 {
+/* :root {
     --title: #FEFFD2;
     --text1: #FFEEA9;
     --text2: #FFBF78;
     --bg: #FF7D29;
     --bs-tertiary-bg-rgb: var(--bg);
   } */
-.theme3 {
+/* :root {
     --title: #003285;
     --text1: #2A629A;
     --text2: #FF7F3E;
     --bg: #FFDA78;
     --bs-tertiary-bg-rgb: var(--bg);
-  }
-  .theme4 {
+  } */
+  /* :root {
     --title: #850F8D;
     --text1: #C738BD;
     --text2: #E49BFF;
     --bg: #F8F9D7;
     --bs-tertiary-bg-rgb: var(--bg);
-  }
+  } */

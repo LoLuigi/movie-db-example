@@ -6,7 +6,7 @@ import ReviewAPI from '../apis/ReviewAPI';
 
 import Page from '../components/Page';
 import './movie-styles.css'
-import './themes.css'
+
 
 import Popup from '../components/Popup';
 // import List from '../components/List';

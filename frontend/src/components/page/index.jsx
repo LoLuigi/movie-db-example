@@ -2,8 +2,8 @@ import React from 'react';
 
 import Container from 'react-bootstrap/Container';
 
-const Page = ({ children, title }) => (
-  <>
+const Page = ({ title, children }) => (
+  <div>
     {title && (
       <Container>
           <h2>{title}</h2>
@@ -14,7 +14,6 @@ const Page = ({ children, title }) => (
         {children}
       </div>
     </Container>
-  </>
+  </div>
 );
-
 export default Page;

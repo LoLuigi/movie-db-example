@@ -8,10 +8,8 @@ import './themes.css'
 
 import Page from '../components/Page';
 import List from '../components/List';
-import ListItem from '../components/ListItem';
 import Mycomp from '../components/Mycomp';
 import Filter from '../components/Filter';
-import Picture from '../components/Picture';
 
 
 
@@ -66,31 +64,31 @@ const MoviesPage = () => {
   // to use map on object, convert to to list first: Object.values()
   // list.length gives number of items
   return (
-    <Page title="Movies">
-      <Filter movies = {movies} onChange={onChangeFilter}></Filter>
-      { 
-        Object.entries(categorys).map(([categoryTitle, movieIds]) => (
-          <Page title = {`${categoryTitle} (${movieIds.length})`}>
-            <List>
-              {/* {console.log(categorys)} */ }
-              {movieIds
-                .map((_Id) => moviesById[_Id]) // map ids to movies
-                .filter((movie) => {
-                  const value = movie[filter.key]
-                  if (filter.key == "Genre") return value.includes(filter.value)
-                  return (value == filter.value);
-                })
-                .map((movie) => {
-                  // console.log(movie)
-                  return (
-                    <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
-                  );
-                })
-              }
-            </List>
-          </Page>
-        ))
-      }
+    <Page title={"Movies"}>
+        <Filter movies = {movies} onChange={onChangeFilter}></Filter>
+        { 
+          Object.entries(categorys).map(([categoryTitle, movieIds]) => (
+            <Page title = {`${categoryTitle} (${movieIds.length})`}>
+              <List>
+                {/* {console.log(categorys)} */ }
+                {movieIds
+                  .map((_Id) => moviesById[_Id]) // map ids to movies
+                  .filter((movie) => {
+                    const value = movie[filter.key]
+                    if (filter.key == "Genre") return value.includes(filter.value)
+                    return (value == filter.value);
+                  })
+                  .map((movie) => {
+                    // console.log(movie)
+                    return (
+                      <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
+                    );
+                  })
+                }
+              </List>
+            </Page>
+          ))
+        }
     </Page>
   );
 };
