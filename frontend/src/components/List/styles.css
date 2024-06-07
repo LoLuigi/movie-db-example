@@ -13,6 +13,3 @@
   display: flex;
   flex-flow: row nowrap;
 }
-.movie-db-props-children{
-  margin-right: .75rem;
-}
