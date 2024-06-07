@@ -43,7 +43,7 @@ const MoviePage = () => {
         <div className='column1'>
           {movie.Director}
         </div>
-        <div className='review'> <p className='title'> {review["Review Title"]} </p> <p className='reviewText'>{review.Review}</p></div>
+        <div className='review'> <p className='title'> Review: {review["Review Title"]} </p> <p className='reviewText'>{review.Review}</p></div>
       </div>
     </Page>
   );

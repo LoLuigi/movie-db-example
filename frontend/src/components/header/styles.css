@@ -5,7 +5,7 @@
 }
 .navbar-brand{
   color: var(--title);
-  background-color: var(--bg);
+  background-color: var(--bg);  
 }
 a{
   color:var(--title);
