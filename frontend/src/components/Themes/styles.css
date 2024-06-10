@@ -1,13 +1,17 @@
 .theme1 {
-  --title: #240750;
-  --text1: #344C64;
-  --text2: #577B8D;
-  --bg: #b3f0ec;
-  --bs-tertiary-bg-rgb: var(--bg);
+    --title: #240750;
+    --text1: #344C64;
+    --text2: #577B8D;
+    --bg: #b3f0ec;
+    --bs-tertiary-bg-rgb: var(--bg);
 }
-/* body{
-  --bg: #b3f0ec;
-} */
+  /* body{
+    --bg: #b3f0ec;
+  } */
+.DropTheme{
+  margin: 1rem;
+  float: left;
+}
 
 .theme2 {
     --title: #FEFFD2;
@@ -15,18 +19,18 @@
     --text2: #FFBF78;
     --bg: #FF7D29;
     --bs-tertiary-bg-rgb: var(--bg);
-  }
+}
 .theme3 {
     --title: #003285;
     --text1: #2A629A;
     --text2: #FF7F3E;
     --bg: #FFDA78;
     --bs-tertiary-bg-rgb: var(--bg);
-  }
+}
   .theme4 {
     --title: #850F8D;
     --text1: #C738BD;
     --text2: #E49BFF;
     --bg: #F8F9D7;
     --bs-tertiary-bg-rgb: var(--bg);
-  }
+}

@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import './styles.css';
-import '../../pages/themes.css'
 
 const Header = () => (
   <Navbar expand="lg" className="bg-body-tertiary" fixed="top">

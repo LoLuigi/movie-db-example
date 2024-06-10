@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import React, { useEffect } from "react";
-import ReactDom from 'react-dom';
 
 // import Form from 'react-bootstrap/Form';
 
@@ -80,7 +79,7 @@ const Filter = (props) => {
                 break;
             default:
         }
-    }, [selected,props.onChange])
+    }, [selected,props.onChange, filters, props])
 
     const onReset = (()=> {
         setSelected("");
