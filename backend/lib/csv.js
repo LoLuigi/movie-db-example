@@ -20,3 +20,39 @@ export async function readCsvFile(relPath) {
 
   return data;
 }
+
+export async function writeCsvFile(relPath, content){
+  // console.log(content)
+
+  const __dirname = path.dirname('');
+
+  const data = {};
+  content.forEach(element => {
+    Object.entries(element).forEach(([key, value])=>{
+      const values = data[key] || [];
+      values.push(value || "");
+      data[key] = values
+    });  
+  });
+
+  const csvData = [
+    Object.keys(data),
+   ];
+
+  for (let i = 0; i < Object.values(data)[0].length; i++) {
+    const v = Object.keys(data).map((key) => {
+      return data[key][i];
+    });
+    csvData.push(v);
+  }
+
+  try {
+    await fs.writeFile(path.join(__dirname, relPath), csvData.join('\r\n'), err => {
+      console.log(err);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  return true;
+}

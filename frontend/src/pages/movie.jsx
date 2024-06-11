@@ -5,7 +5,7 @@ import MovieAPI from '../apis/MovieAPI';
 import ReviewAPI from '../apis/ReviewAPI';
 
 import Page from '../components/Page';
-import './movie-styles.css'
+import './styles/movie-styles.css'
 
 
 import Popup from '../components/Popup';

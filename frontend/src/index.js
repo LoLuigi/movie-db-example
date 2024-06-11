@@ -13,7 +13,7 @@ import reportWebVitals from './reportWebVitals';
 
 import MoviesPage, { loader as moviesLoader } from './pages/movies';
 import MoviePage, { loader as movieLoader } from './pages/movie';
-import AboutPage from './pages/about';
+import ProfilePage from './pages/profile';
 
 const router = createBrowserRouter([
   {
@@ -31,8 +31,9 @@ const router = createBrowserRouter([
         loader: movieLoader,
       },
       {
-        path: "about",
-        element: <AboutPage />,
+        path: "profile",
+        element: <ProfilePage/>,
+        // loggedin="false"
       },
     ],
   },

@@ -1,0 +1,23 @@
+.formed{
+    width: 30rem;
+}
+.register-btn{
+    margin-left: 1rem;
+    text-decoration: underline;
+    text-size-adjust: 0.25rem;
+}
+.btn-primary{
+    --bs-btn-color: var(--bg);
+    --bs-btn-bg: var(--text2);
+    --bs-btn-border-color: var(--text2);
+    --bs-btn-hover-color: var(--bg);
+    --bs-btn-hover-bg: var(--text1);
+    --bs-btn-hover-border-color: var(--text1);
+    --bs-btn-focus-shadow-rgb: var(--text2);
+    --bs-btn-active-color: var(--text1);
+    --bs-btn-active-bg: var(--text2);
+    --bs-btn-active-border-color: var(--text1);
+    --bs-btn-disabled-color: var(--text1);
+    --bs-btn-disabled-bg: var(--text2);
+    --bs-btn-disabled-border-color: var(--text1);
+}

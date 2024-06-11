@@ -36,7 +36,7 @@ const Filter = (props) => {
         allMovies.forEach((movie, i)=> {
             switch(value){
                 case "3":
-                    allOptions.push(movie["Year"])
+                    allOptions.push(movie.Year.substring(0, movie.Year.length - 2))
                     break;
                 case "4":
                     if (movie["Certificate"] !== ""){

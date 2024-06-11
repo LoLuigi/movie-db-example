@@ -1,0 +1,12 @@
+/* .card-text{
+    width: fit-content;
+} */
+h5 {
+    color: var(--text1);
+    --bs-heading-color: var(--text)
+}
+.card-text{
+    color: var(--text1);
+    text-align: center;
+    margin-top: 2rem;
+}
