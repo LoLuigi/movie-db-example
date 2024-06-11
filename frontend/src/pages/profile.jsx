@@ -1,6 +1,7 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useContext } from 'react';
 
 import UsersAPI from '../apis/UsersAPI'
+import UserContext from '../config/userContext';
 
 import Page from '../components/Page';
 import Profile from '../components/Profile';
@@ -10,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import './styles/profile-styles.css'
 
 const ProfilePage = (props) => {
-  const [loggedIn, setLoggedIn] = useState(props.loggedin || false)
+  const [user, setUser] = useContext(UserContext)
   const [userMethod, setUserMethod] = useState("Login")
   const [form, setForm] = useState({
     email: "",
@@ -24,31 +25,26 @@ const ProfilePage = (props) => {
   },[form])
 
   async function onRegister(){
-    let test2 = await UsersAPI.postCreate(form);
-    if(!test2){
-      document.Button.className="Error"
-    }
-    setLoggedIn(test2[0]);
+    let _user = await UsersAPI.postCreate(form);
+    setUser(_user);
   };
   async function onLogin(){
-    let test = await UsersAPI.postLogin(form);
-    setLoggedIn(test);
+    let _user = await UsersAPI.postLogin(form);
+    setUser(_user);
   };
+  console.log(user)
 
 
   const onChangeMethod = useCallback((render) => (method) => {
     setUserMethod(method)
   })
   
-  if (!loggedIn){
-    
-
-  }
-  if (loggedIn){
+  if (user!==null){
   return(
     <Page title="Profile">
     <Profile user={form}></Profile>
-  </Page>
+    <button>Log Out</button>
+    </Page>
   )}else{
     if (userMethod === "Login"){
       return(
@@ -76,24 +72,24 @@ const ProfilePage = (props) => {
         <Form className='formed'>
         <Form.Group className="mb-3">
             <Form.Label>Last Name</Form.Label>
-            <Form.Control value={form["lastName"]} onChange={onFormChange("lastName")} required type="string" placeholder="Last Name" />
+            <Form.Control value={form["lastName"]} onChange={onFormChange("lastName")} type="string" placeholder="Last Name" />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>First Name</Form.Label>
-            <Form.Control value={form["firstName"]} onChange={onFormChange("firstName")} required type="string" placeholder="First Name" />
+            <Form.Control value={form["firstName"]} onChange={onFormChange("firstName")} type="string" placeholder="First Name" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Age</Form.Label>
-            <Form.Control value={form["age"]} onChange={onFormChange("age")} required type="number" placeholder="Age" />
+            <Form.Control value={form["age"]} onChange={onFormChange("age")} type="number" placeholder="Age" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control value={form["email"]} onChange={onFormChange("email")} required type="email" placeholder="Enter email" />
+            <Form.Control value={form["email"]} onChange={onFormChange("email")} type="email" placeholder="Enter email" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control value={form["password"]} onChange={onFormChange("password")} required type="password" placeholder="Password" />
+            <Form.Control value={form["password"]} onChange={onFormChange("password")} type="password" placeholder="Password" />
           </Form.Group>
           <Button variant="primary" onClick={onRegister}>
             Submit

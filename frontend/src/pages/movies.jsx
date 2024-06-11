@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import {useContext } from 'react';
 
+import UserContext from '../config/userContext';
 import MovieAPI from '../apis/MovieAPI';
 
 import Page from '../components/Page';
@@ -45,6 +47,9 @@ const MoviesPage = () => {
   const {categorys} = useLoaderData();
   // let categorysList = Object.keys(categorys);
   const {moviesById} = useLoaderData();
+  const [user, setUser] = useContext(UserContext)
+  console.log(user)
+
 
   const [filter, setFilter] = useState({ key: null, value: null });
 

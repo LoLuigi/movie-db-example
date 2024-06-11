@@ -14,6 +14,7 @@ import reportWebVitals from './reportWebVitals';
 import MoviesPage, { loader as moviesLoader } from './pages/movies';
 import MoviePage, { loader as movieLoader } from './pages/movie';
 import ProfilePage from './pages/profile';
+import {UserProvider} from './config/userContext';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
 

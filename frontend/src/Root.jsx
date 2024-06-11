@@ -9,9 +9,8 @@ import Themes from './components/Themes';
 
 
 const Root = () => {
-  const [theme, setTheme] = useState("theme1")
+  const [theme, setTheme] = useState("theme3")
   const onThemeChange = useCallback((key) =>{
-    console.log(key)
     const { target: {value}} = key
     setTheme(value)
   })

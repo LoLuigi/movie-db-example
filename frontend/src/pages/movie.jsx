@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-
+import {useContext } from 'react';
+import UserContext from '../config/userContext';
 import MovieAPI from '../apis/MovieAPI';
 import ReviewAPI from '../apis/ReviewAPI';
+
 
 import Page from '../components/Page';
 import './styles/movie-styles.css'
@@ -23,6 +25,8 @@ export async function loader({ params }) {
 const MoviePage = () => {
   const { movie } = useLoaderData();
   const {review} = useLoaderData();
+  const [user, setUser] = useContext(UserContext)
+  console.log(user)
   console.log({ movie });
   console.log({review})
   return (

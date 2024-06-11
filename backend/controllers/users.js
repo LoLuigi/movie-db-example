@@ -35,7 +35,7 @@ class UsersController {
         await writeCsvFile("/data/users.csv", users);
     };
     // console.log(unique)
-    res.json([unique, errorMessage])
+    res.json(body.email)
     return;
   };
 
@@ -52,7 +52,7 @@ class UsersController {
             response = "login was succesfull";
         };
     });
-    res.json(login)
+    res.json(body.email)
     return;
   }
 }
