@@ -6,10 +6,11 @@ class UsersController {
     console.log(`UsersReviewsController.postUser`);
     const { useremail } = req.query
     const users = await readCsvFile('/data/users.csv');
-    // console.log(users)
+    console.log(useremail)
     users.map((user)=>{
       if (JSON.stringify(user.email) === JSON.stringify(useremail)){
         result = user;
+        console.log("User found");
       }
     })
     res.json(result);
@@ -22,7 +23,7 @@ class UsersController {
     const { body } = req;
     let unique = true;
     let errorMessage = "New User added"
-    if (JSON.stringify(body).includes(`""`) || !JSON.stringify(body.email).includes("@")){
+    if (JSON.stringify(body).includes(`""`) || !JSON.stringify(body.email).includes("@") || !JSON.stringify(body.age).includes(".",".")){
       console.log("Not full");
       console.log("Emptyfield")
       unique = false
@@ -51,16 +52,17 @@ class UsersController {
     const users = await readCsvFile('/data/users.csv')
     const { body } = req;
     let login = false;
-    // console.log(body);
     let response = "Log in failed"
     if  (body.email.length !== 0 && body.password.length !== 0)
       {users.forEach((user)=>{
-          if (user.email === body.email && user.password === body.password){
-              login = true;
+        if (user.email === body.email && user.password === body.password){
+          console.log("Login succesfull");
+            login = true;
           }
       })};
       if (!login){
         body.email=null
+        console.log("Login failed");
       }
     res.json(body.email)
     return;

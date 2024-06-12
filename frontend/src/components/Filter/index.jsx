@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import React, { useEffect } from "react";
+import './styles.css';
 
 // import Form from 'react-bootstrap/Form';
 
@@ -25,7 +26,6 @@ const Filter = (props) => {
         return ()=>{
             setFilters(filter)
         }
-        
     }, [allMovies])
 
     // const allOptions=[]
@@ -36,12 +36,11 @@ const Filter = (props) => {
         allMovies.forEach((movie, i)=> {
             switch(value){
                 case "3":
-                    allOptions.push(movie.Year.substring(0, movie.Year.length - 2))
+                    allOptions.push(movie.Year.substring(0, movie.Year.length - 2));
                     break;
                 case "4":
                     if (movie["Certificate"] !== ""){
-                        allOptions.push(movie["Certificate"])
-                        
+                        allOptions.push(movie["Certificate"]);
                     }
                     break;  
                 case "6":
@@ -69,7 +68,7 @@ const Filter = (props) => {
         console.log(filters)
         switch(selected){
             case "3":
-                props.onChange("Year",value)
+                props.onChange("Year",value+".0")
                 break;
             case "4":
                 props.onChange("Certificate",value)

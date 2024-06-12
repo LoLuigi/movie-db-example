@@ -55,7 +55,7 @@ export default function Profile(props) {
                             <MDBCardText className="text-muted">{userInformation.email}</MDBCardText>
                         </MDBCol>
                         <MDBCol size="6" className="mb-3">
-                            <MDBTypography tag="h6">Age</MDBTypography>
+                            <MDBTypography tag="h6">Birthday</MDBTypography>
                             <MDBCardText className="text-muted">{userInformation.age}</MDBCardText>
                         </MDBCol>
                         <Link to={'/profile'}><button onClick={onLogOut()} className='logOut'>Log Out</button></Link>

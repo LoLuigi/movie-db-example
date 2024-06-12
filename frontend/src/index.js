@@ -15,6 +15,7 @@ import MoviesPage, { loader as moviesLoader } from './pages/movies';
 import MoviePage, { loader as movieLoader } from './pages/movie';
 import ProfilePage from './pages/profile';
 import {UserProvider} from './config/userContext';
+import { ThemeProvide } from './config/themeContext';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
+      <ThemeProvide>
       <RouterProvider router={router} />
+      </ThemeProvide>
     </UserProvider>
   </React.StrictMode>
 );

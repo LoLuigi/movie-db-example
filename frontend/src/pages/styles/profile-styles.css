@@ -5,6 +5,9 @@
     margin-left: 1rem;
     text-decoration: underline;
     text-size-adjust: 0.25rem;
+    background-color: var(--bg);
+    border: none;
+    color: var(--text2);
 }
 .btn-primary{
     --bs-btn-color: var(--bg);

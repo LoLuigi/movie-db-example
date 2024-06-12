@@ -1,0 +1,13 @@
+option{
+    background-color: var(--text2);
+    color: var(--title);
+}
+select{
+    background-color: var(--text2);
+    border-color: var(--bg);
+    color: var(--title);
+}
+select:hover{
+    background-color: var(--text2);
+    border-color: var(--title);
+}

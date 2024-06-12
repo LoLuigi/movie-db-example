@@ -40,17 +40,17 @@
     --bs-btn-disabled-border-color: var(--bg);
 }
 .btn-secondary{
-    --bs-btn-color: var(--bg);
+    --bs-btn-color: var(--title);
     --bs-btn-bg: var(--text2);
     --bs-btn-border-color: var(--text2);
-    --bs-btn-hover-color: var(--bg);
+    --bs-btn-hover-color: var(--title);
     --bs-btn-hover-bg: var(--text1);
     --bs-btn-hover-border-color: var(--text1);
     --bs-btn-focus-shadow-rgb: var(--text2);
-    --bs-btn-active-color: var(--text1);
+    --bs-btn-active-color: var(--title);
     --bs-btn-active-bg: var(--text2);
     --bs-btn-active-border-color: var(--text1);
-    --bs-btn-disabled-color: var(--text1);
+    --bs-btn-disabled-color: var(--title);
     --bs-btn-disabled-bg: var(--text2);
     --bs-btn-disabled-border-color: var(--text1);
     height: min-content;
