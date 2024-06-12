@@ -1,9 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useContext } from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import UsersAPI from '../../apis/UsersAPI'
-import { useLoaderData } from 'react-router-dom';
+
+import { Link, useLoaderData } from 'react-router-dom';
 import './styles.css'
+import UserContext from '../../config/userContext';
+
 
 export async function loader(info){
     const userInformation = await UsersAPI.getUser(info)
@@ -12,15 +15,22 @@ export async function loader(info){
 
 export default function Profile(props) {
     const [userInformation, setUserInformation] = useState({})
+    const [user, setUser] = useContext(UserContext)
+    let reload = false
     useEffect(()=>{
-        loader(props.user.email)
+        loader(user)
     }, [])
     async function loader(info){
         let result = await UsersAPI.getUser(info)
         setUserInformation(result)
     }
 
-    console.log(userInformation)
+    const onLogOut = useCallback((load)=>(click) =>{
+        setUser(null)
+        props.logOut()
+    })
+
+
     return (
         <section className="vh-100">
         <MDBContainer className="py-5 h-100">
@@ -32,7 +42,7 @@ export default function Profile(props) {
                     style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
                     {/* <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                         alt="Avatar" className="my-5" fluid /> */}
-                    <MDBTypography tag="h5" className='card-text'>{`${userInformation.firstName} ${userInformation.lastName}`}</MDBTypography>
+                    <MDBTypography tag="h5" className='card-text'>{`Hello ${userInformation.firstName} ${userInformation.lastName}`}</MDBTypography>
                     <MDBIcon far icon="edit mb-5" />
                     </MDBCol>
                     <MDBCol md="8">
@@ -48,8 +58,8 @@ export default function Profile(props) {
                             <MDBTypography tag="h6">Age</MDBTypography>
                             <MDBCardText className="text-muted">{userInformation.age}</MDBCardText>
                         </MDBCol>
+                        <Link to={'/profile'}><button onClick={onLogOut()} className='logOut'>Log Out</button></Link>
                         </MDBRow>
-
                         <div className="d-flex justify-content-start">
                         <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>
                         <a href="#!"><MDBIcon fab icon="twitter me-3" size="lg" /></a>

@@ -6,7 +6,6 @@ h5 {
 .card-text{
     color: var(--text1);
     text-align: center;
-    margin-top: 2rem;
 }
 .card{
     background-color: var(--text2);
@@ -15,4 +14,42 @@ h5 {
 }
 .card-body{
     color: var(--title);
+}
+
+.logOut{
+    position: relative;
+    float: right;
+    background-color: var(--text1);
+    color: var(--bg);
+    border-color: var(--text2);
+    width: 7rem;
+}
+.logOut:hover{
+    position: relative;
+    align-self: center;
+    background-color: var(--bg);
+    color: var(--text2);
+    border-color: var(--bg);
+}
+/* .pt-1{
+    display: flex;
+    flex-flow: row-reverse wrap;
+
+}
+.mb-3{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    width: fit-content;
+}
+h6 {
+    height: fit-content;
+    color: var(--text1);
+}
+.col-6{
+    display: flex;
+    flex-flow: column nowrap;
+} */
+h5{
+    margin-top: 2rem;
 }

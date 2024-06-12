@@ -12,7 +12,6 @@ class UsersController {
         result = user;
       }
     })
-    console.log(result)
     res.json(result);
     return;
   }
@@ -23,15 +22,23 @@ class UsersController {
     const { body } = req;
     let unique = true;
     let errorMessage = "New User added"
+    if (JSON.stringify(body).includes(`""`) || !JSON.stringify(body.email).includes("@")){
+      console.log("Not full");
+      console.log("Emptyfield")
+      unique = false
+      body.email = null
+    }
     users.map((user)=>{
-        if (JSON.stringify(user.email) === JSON.stringify(body.email)){
+        if (unique && JSON.stringify(user.email) === JSON.stringify(body.email)){
             unique = false
+            body.email = null
             errorMessage = "Not a new User"
             return;
         };
     });
     if (unique){
         users.push(body);
+        // console.log(users)
         await writeCsvFile("/data/users.csv", users);
     };
     // console.log(unique)
@@ -46,12 +53,15 @@ class UsersController {
     let login = false;
     // console.log(body);
     let response = "Log in failed"
-    users.map((user)=>{
-        if (user.email === body.email && user.password === body.password ){
-            login = true;
-            response = "login was succesfull";
-        };
-    });
+    if  (body.email.length !== 0 && body.password.length !== 0)
+      {users.forEach((user)=>{
+          if (user.email === body.email && user.password === body.password){
+              login = true;
+          }
+      })};
+      if (!login){
+        body.email=null
+      }
     res.json(body.email)
     return;
   }

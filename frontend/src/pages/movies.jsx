@@ -48,8 +48,6 @@ const MoviesPage = () => {
   // let categorysList = Object.keys(categorys);
   const {moviesById} = useLoaderData();
   const [user, setUser] = useContext(UserContext)
-  console.log(user)
-
 
   const [filter, setFilter] = useState({ key: null, value: null });
 

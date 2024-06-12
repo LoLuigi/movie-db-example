@@ -22,7 +22,6 @@ export async function readCsvFile(relPath) {
 }
 
 export async function writeCsvFile(relPath, content){
-  // console.log(content)
 
   const __dirname = path.dirname('');
 

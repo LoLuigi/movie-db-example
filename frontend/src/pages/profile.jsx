@@ -15,7 +15,10 @@ const ProfilePage = (props) => {
   const [userMethod, setUserMethod] = useState("Login")
   const [form, setForm] = useState({
     email: "",
-    password: ""
+    password: "",
+    lastName: "",
+    firstName: "",
+    age: ""
   })
   const onFormChange = useCallback((key) => (event) =>{
     setForm({
@@ -32,18 +35,27 @@ const ProfilePage = (props) => {
     let _user = await UsersAPI.postLogin(form);
     setUser(_user);
   };
-  console.log(user)
+  const onLogOut=useCallback((render) => (set)=>{
+    setForm({
+      ...form,
+      email: "",
+      password: "",
+      lastName: "",
+      firstName: "",
+      age: ""})
+    console.log(form)
+  })
+
 
 
   const onChangeMethod = useCallback((render) => (method) => {
     setUserMethod(method)
   })
-  
+  // onlogout={onLogOut(null)}
   if (user!==null){
   return(
     <Page title="Profile">
-    <Profile user={form}></Profile>
-    <button>Log Out</button>
+    <Profile logOut={onLogOut()}></Profile>
     </Page>
   )}else{
     if (userMethod === "Login"){
@@ -67,6 +79,7 @@ const ProfilePage = (props) => {
         </Page>
       )
     }else{
+      
       return(
         <Page title="Register">
         <Form className='formed'>
