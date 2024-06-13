@@ -71,12 +71,16 @@ const ProfilePage = (props) => {
   async function onRegister(){
     let _user = await UsersAPI.postCreate(form);
     setUser(_user);
-    onTheme()
+    if (_user !== null){
+      onTheme()
+    }
   };
   async function onLogin(){
     let _user = await UsersAPI.postLogin(form);
     setUser(_user);
-    onTheme()
+    if (_user !== null){
+      onTheme()
+    }
   };
   const onLogOut=useCallback((render) => (set)=>{
     setForm({
@@ -184,7 +188,10 @@ const ProfilePage = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control value={form["password"]} onChange={onFormChange("password")} type="password" placeholder="Password" />
+            <span class="eye flex justify-around items-center" onClick={handleToggle}>
+                  <Icon class="absolute mr-10" icon={icon} size={25}/>
+            </span>
+            <Form.Control value={form["password"]} onChange={onFormChange("password")} type={type} placeholder="Password" />
           </Form.Group>
           <Button variant="primary" onClick={onLogin}>
             Login
@@ -217,7 +224,10 @@ const ProfilePage = (props) => {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control value={form["password"]} onChange={onFormChange("password")} type="password" placeholder="Password" />
+            <span class="eye flex justify-around items-center" onClick={handleToggle}>
+                  <Icon class="absolute mr-10" icon={icon} size={25}/>
+            </span>
+            <Form.Control value={form["password"]} onChange={onFormChange("password")} type={type} placeholder="Password" />
           </Form.Group>
           <Button variant="primary" onClick={onRegister}>
             Register

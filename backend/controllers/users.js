@@ -19,11 +19,15 @@ class UsersController {
   static async create(req, res){
     console.log("Registration req")
     const users = await readCsvFile('/data/users.csv');
-    const { body } = req;
+    let { body } = req;
     let unique = true;
     let errorMessage = "New User added"
+    body = {
+      ...body,
+      theme: "theme3"
+    }
     if (JSON.stringify(body).includes(`""`) || !JSON.stringify(body.email).includes("@") || !JSON.stringify(body.age).includes(".",".")){
-      console.log("Not full");
+      console.log(body);
       console.log("Emptyfield")
       unique = false
       body.email = null

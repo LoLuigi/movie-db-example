@@ -8,28 +8,31 @@ h5 {
     text-align: center;
 }
 .card{
-    background-color: var(--text2);
+    background-color: var(--bg);
     border: none;
     color: var(--text1);
 }
 .card-body{
     color: var(--title);
 }
+.text-muted{
+    color: var(--text1) !important;
+}
 
 .logOut{
     position: relative;
     float: right;
-    background-color: var(--text1);
-    color: var(--bg);
+    background-color: var(--text2);
+    color: var(--title);
     border-color: var(--text2);
     width: 7rem;
 }
 .logOut:hover{
     position: relative;
     align-self: center;
-    background-color: var(--bg);
-    color: var(--text2);
-    border-color: var(--bg);
+    background-color: var(--text1);
+    color: var(--title);
+    border-color: var(--text1);
 }
 /* .pt-1{
     display: flex;
