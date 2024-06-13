@@ -4,7 +4,7 @@ import './styles.css';
 
 const List = ({ children }) => (
   <ul className="movie-db-list">
-    {children};
+    {children}
   </ul>
 );
 

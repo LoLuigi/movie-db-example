@@ -11,7 +11,7 @@ const Page = ({ title, children }) => (
     )}
     <Container>
       <div>
-        {children};
+        {children}
       </div>
     </Container>
   </div>

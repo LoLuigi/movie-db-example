@@ -13,7 +13,7 @@ import Filter from '../components/Filter';
 
 
 export async function loader() {
-  const movies = await MovieAPI.getAllBatch(1, 250);
+  const movies = await MovieAPI.getAllBatch(1, 2500);
   let categorys = {};
   movies.forEach((movie) => {
     const {Genre,Id} = movie
@@ -76,14 +76,14 @@ const MoviesPage = () => {
                     .filter((movie) => {
                       const value = movie[filter.key]
                       if (filter.key == "Genre") return value.includes(filter.value)
-                      return (value == filter.value);
+                      return (value == filter.value)
                     })
                     .map((movie) => {
                       return (
                         <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
-                      );
+                      )
                     })
-                  };
+                  }
                 </List>
               </Page>
             ))

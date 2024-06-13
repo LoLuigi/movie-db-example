@@ -4,7 +4,7 @@ import './styles.css';
 
 const ListItem = ({ children }) => (
   <li className="movie-db-list-item">
-    {children};
+    {children}
   </li>
 );
 
