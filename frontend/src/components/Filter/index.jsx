@@ -1,38 +1,30 @@
-import { useCallback } from "react";
-import { useState } from "react";
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback, useState } from "react";
+
 import './styles.css';
 
-// import Form from 'react-bootstrap/Form';
-
 const Filter = (props) => {
-    const allMovies = props.movies
+    const allMovies = props.movies;
     var [allOptions, setAllOptions] = useState([]);
-    const  [filters,setFilters]=useState([])
-    const [selected, setSelected]=useState("")
-    // console.log(allMovies)
-    
-    // const unique = [...new Set(list)];
-    
-    // onChange={onFilterchange}
+    const  [filters,setFilters]=useState([]);
+    const [selected, setSelected]=useState("");
+
     useEffect(()=>{
             const filter = Object.entries(allMovies[0]).map((_filter, i)=> {
                 return({
                     name: _filter[0],
                     id: i
-                })
+                });
             }).filter((item)=> 
-                ['Year', 'Certificate', 'Genre'].includes(item.name))
+                ['Year', 'Certificate', 'Genre'].includes(item.name));
         return ()=>{
-            setFilters(filter)
+            setFilters(filter);
         }
-    }, [allMovies])
+    }, [allMovies]);
 
-    // const allOptions=[]
     const onFilterChange = useCallback((event) => {
-        const { target: {value} } = event
-        setSelected(value)
-        allOptions=[]
+        const { target: {value} } = event;
+        setSelected(value);
+        allOptions=[];
         allMovies.forEach((movie, i)=> {
             switch(value){
                 case "3":
@@ -44,8 +36,8 @@ const Filter = (props) => {
                     }
                     break;  
                 case "6":
-                    const {Genre} = movie
-                    const genre = Genre.split(",")
+                    const {Genre} = movie;
+                    const genre = Genre.split(",");
                     genre
                     .map((_genre)=>_genre.trim())
                     .forEach((_genre)=> {
@@ -53,43 +45,39 @@ const Filter = (props) => {
                     });
                     break;
                 default:
-            }
+            };
         });
         if (value == "3"){
-            setAllOptions(allOptions.sort().reverse())
+            setAllOptions(allOptions.sort().reverse());
         }else{
-            setAllOptions(allOptions.sort())
+            setAllOptions(allOptions.sort());
         }
         setAllOptions([...new Set(allOptions)]);
-        //console.log([...new Set(allOptions)])
-            
-        
+
     }, [allMovies,allOptions]);
     
 
     const onFilterValueChange = useCallback((event) => {
-        const { target: {value} } = event
-        // props.onChange(selected,value)
-        console.log(filters)
+        const { target: {value} } = event;
         switch(selected){
             case "3":
-                props.onChange("Year",value+".0")
+                props.onChange("Year",value+".0");
                 break;
             case "4":
-                props.onChange("Certificate",value)
+                props.onChange("Certificate",value);
                 break;  
             case "6":
-                props.onChange("Genre",value)
+                props.onChange("Genre",value);
                 break;
             default:
         }
-    }, [selected,props.onChange, filters, props])
+    }, [selected,props.onChange, filters, props]);
 
     const onReset = (()=> {
         setSelected("");
-        setAllOptions([])
-        props.onChange()
-    })
+        setAllOptions([]);
+        props.onChange();
+    });
 
     return(
         <div>
@@ -97,54 +85,27 @@ const Filter = (props) => {
                 <select value={selected} onChange={onFilterChange}>
                     <option selected disabled value="">Select how you want to Filter</option>
                     {filters.map((filt)=>{
-                        // console.log(filt)
-                    return(
-                        <option value={filt.id} >{filt.name}</option>
-                    )})}
+                        return(
+                            <option value={filt.id} >{filt.name}</option>
+                        );
+                    })};
                 </select>
-            )
-            }
+            )};
             {allOptions.length > 0&& (
             <>
             <select onChange={onFilterValueChange}>
                 <option selected disabled value="">Select an Option</option>
                 {
                 allOptions.map((filt)=>{
-                    // console.log(filt)
-                return(
-                    <option value={filt}>{filt}</option>
-                )})}
+                    return(
+                        <option value={filt}>{filt}</option>
+                    )
+                })};
             </select>
             <button onClick={onReset}>Reset</button>
             </>
-            )
-            }
-
-
-
-    {/* <Form.Select  aria-label="Default select example" size="sm">
-    <option>Filters</option>
-       {filters.forEach((filt)=>{
-        console.log(filt)
-        return(
-            <option value={filt.id}>{filt.name}</option>
-        )
-       }
-    )}
-    </Form.Select>
-    <Form.Select aria-label="Default select example" size="sm">
-       <option>Options</option>
-       {allOptions.map((option)=>{
-        console.log(option)
-        return(
-            <option value={option}>{option}</option>
-        )
-       }
-    )}
-     </Form.Select> */}
+            )};
         </div>
-    )
-    
+    );
 };
-export default Filter
-//onChange={onFilterchange(value)}
+export default Filter;

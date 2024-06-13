@@ -24,7 +24,7 @@ app.use(cors());
 app.use('/movies', moviesRouter);
 app.use('/service', serviceRouter);
 app.use('/reviews', reviewsRouter);
-app.use('/users', usersRouter)
+app.use('/users', usersRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

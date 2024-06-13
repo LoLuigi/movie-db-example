@@ -5,19 +5,14 @@ import UserContext from '../config/userContext';
 import MovieAPI from '../apis/MovieAPI';
 import ReviewAPI from '../apis/ReviewAPI';
 
-
 import Page from '../components/Page';
 import './styles/movie-styles.css'
 
-
 import Popup from '../components/Popup';
-// import List from '../components/List';
 
 
 export async function loader({ params }) {
-  // const movies = await MovieAPI.getAllBatch(1, 250);
   const movie = await MovieAPI.getMovie(params.movieId);
-  // const movie = await movies.find((movie) => movie.Id === params.movieId);
   const review = await ReviewAPI.getReview(params.movieId);
   return { movie, review };
 }
@@ -25,10 +20,7 @@ export async function loader({ params }) {
 const MoviePage = () => {
   const { movie } = useLoaderData();
   const {review} = useLoaderData();
-  const [user, setUser] = useContext(UserContext)
-  console.log(user)
-  console.log({ movie });
-  console.log({review})
+
   return (
     <Page title={`${movie.Title} (${movie.Year.substring(0, movie.Year.length - 2)})`}>
       <div className='wrapper1'>

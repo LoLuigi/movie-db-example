@@ -1,5 +1,4 @@
 import React , {useContext, useState} from "react";
-import UserContext from '../../config/userContext';
 
 const Themes = (props) => {
     const user = props.user
@@ -14,12 +13,15 @@ const Themes = (props) => {
             <option value="default">Default</option>
             <option value="theme1">Pop</option>
             <option value="theme2">Sun</option>
-            <option value="theme3">Night</option>
+            <option value="theme3">Beach</option>
             <option value="theme4">Purple</option>
             <option value="theme5">Frog</option>
             <option value="theme6">Hell</option>
-            <option value="theme7">7</option>
+            <option value="theme7">Night</option>
+            <option value="theme8">Ocean</option>
+            <option value="theme9">Sunrise</option>
+            <option value="theme10">Swisscom</option>
         </select>
-    )
+    );
 };
 export default Themes;

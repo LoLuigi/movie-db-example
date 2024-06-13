@@ -13,8 +13,8 @@ import Filter from '../components/Filter';
 
 
 export async function loader() {
-  const movies = await MovieAPI.getAllBatch(3, 250);
-  const categorys = {};
+  const movies = await MovieAPI.getAllBatch(1, 250);
+  let categorys = {};
   movies.forEach((movie) => {
     const {Genre,Id} = movie
     const genre = Genre.split(",")
@@ -35,43 +35,42 @@ export async function loader() {
     };
   }, {});
 
-  // console.log(moviesById);
-  // console.log(categorys)
+  const ordered = Object.keys(categorys).sort().reduce(
+    (obj, key)=>{
+      obj[key] = categorys[key];
+      return obj;
+    },
+    {}
+  );
+  categorys = ordered
+
   return { movies,moviesById,categorys };
-  
-}
+};
 
 const MoviesPage = () => {
   const { movies } = useLoaderData();
-  // console.log({movies});
   const {categorys} = useLoaderData();
-  // let categorysList = Object.keys(categorys);
   const {moviesById} = useLoaderData();
   const [user, setUser] = useContext(UserContext)
-
   const [filter, setFilter] = useState({ key: null, value: null });
 
   const onChangeFilter = useCallback((key, value) => {
-    // console.log(value)
     setFilter({
       key,
       value,
     })
-    
-    // update filter...
   },[]);
-  // to get an element from list: list.find()
-  // to use map on object, convert to to list first: Object.values()
-  // list.length gives number of items
+
   if (user !== null){
     return (
       <Page title={"Movies"}>
+        {/* <button value="-1" onClick={onBatchchange()}>Previous</button>
+        <button value="1" onClick={onBatchchange()}>Next</button> */}
           <Filter movies = {movies} onChange={onChangeFilter}></Filter>
           { 
             Object.entries(categorys).map(([categoryTitle, movieIds]) => (
               <Page title = {`${categoryTitle} (${movieIds.length})`}>
                 <List>
-                  {/* {console.log(categorys)} */ }
                   {movieIds
                     .map((_Id) => moviesById[_Id]) // map ids to movies
                     .filter((movie) => {
@@ -80,16 +79,15 @@ const MoviesPage = () => {
                       return (value == filter.value);
                     })
                     .map((movie) => {
-                      // console.log(movie)
                       return (
                         <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
                       );
                     })
-                  }
+                  };
                 </List>
               </Page>
             ))
-          }
+          };
       </Page>
     );
   }else{
@@ -99,7 +97,6 @@ const MoviesPage = () => {
             Object.entries(categorys).map(([categoryTitle, movieIds]) => (
               <Page title = {`${categoryTitle} (${movieIds.length})`}>
                 <List>
-                  {/* {console.log(categorys)} */ }
                   {movieIds
                     .map((_Id) => moviesById[_Id]) // map ids to movies
                     .filter((movie) => {
@@ -108,20 +105,18 @@ const MoviesPage = () => {
                       return (value == filter.value);
                     })
                     .map((movie) => {
-                      // console.log(movie)
                       return (
                         <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
                       );
                     })
-                  }
+                  };
                 </List>
               </Page>
             ))
-          }
+          };
       </Page>
     );
-  }
-  
+  };
 };
 
 export default MoviesPage;

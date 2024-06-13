@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from 'react-bootstrap';
 import { useState } from 'react';
 
-import './styles.css'
+import './styles.css';
 import Picture from '../Picture';
 
 const Popup = (props) =>{
@@ -11,12 +11,11 @@ const Popup = (props) =>{
     const modalShow = () => setShow(true);  
     return (  
       <div className="closed">  
-         <Button variant="success" onClick={modalShow}>  
-            <Picture src={props.content}/>
+        <Button variant="success" onClick={modalShow}>  
+          <Picture src={props.content}/>
         </Button>  
         <Modal show={show} onHide={modalClose}>  
           <Modal.Header closeButton>  
-          {/* <Modal.Title>Title for Modal</Modal.Title>   */}
           </Modal.Header>  
           <Modal.Body>  
             <div class="column2">
@@ -29,5 +28,6 @@ const Popup = (props) =>{
         </Modal>  
       </div>  
     );    
-}  
+};
+
 export default Popup;  

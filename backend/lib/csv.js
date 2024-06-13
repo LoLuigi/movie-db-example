@@ -19,18 +19,17 @@ export async function readCsvFile(relPath) {
   );
 
   return data;
-}
+};
 
 export async function writeCsvFile(relPath, content){
-
   const __dirname = path.dirname('');
-
   const data = {};
+
   content.forEach(element => {
     Object.entries(element).forEach(([key, value])=>{
       const values = data[key] || [];
       values.push(value || "");
-      data[key] = values
+      data[key] = values;
     });  
   });
 
@@ -54,4 +53,4 @@ export async function writeCsvFile(relPath, content){
   }
 
   return true;
-}
+};

@@ -1,9 +1,9 @@
 
-const baseUrl = 'http://127.0.0.1:3030/movies'
+const baseUrl = 'http://127.0.0.1:3030/movies';
 
 async function jsonFetch(url) {
   return fetch(url)
-    .then((response) => response.json())
+    .then((response) => response.json());
 }
 
 async function getAll() {
@@ -17,7 +17,7 @@ async function getAllBatch(page, size) {
 
 async function getMovie(movieId) {
   const url = `${baseUrl}?id=${movieId}`;
-  return jsonFetch(url)
+  return jsonFetch(url);
 }
 
 const API = {

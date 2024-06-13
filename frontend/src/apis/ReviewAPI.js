@@ -1,9 +1,9 @@
 
-const baseUrl = 'http://127.0.0.1:3030/reviews'
+const baseUrl = 'http://127.0.0.1:3030/reviews';
 
 async function jsonFetch(url) {
   return fetch(url)
-    .then((response) => response.json())
+    .then((response) => response.json());
 }
 
 async function getAll() {

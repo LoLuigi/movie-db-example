@@ -2,6 +2,7 @@
 h5 {
     color: var(--text1);
     --bs-heading-color: var(--text)
+    margin-top: 2rem;
 }
 .card-text{
     color: var(--text1);
@@ -33,26 +34,4 @@ h5 {
     background-color: var(--text1);
     color: var(--title);
     border-color: var(--text1);
-}
-/* .pt-1{
-    display: flex;
-    flex-flow: row-reverse wrap;
-
-}
-.mb-3{
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    width: fit-content;
-}
-h6 {
-    height: fit-content;
-    color: var(--text1);
-}
-.col-6{
-    display: flex;
-    flex-flow: column nowrap;
-} */
-h5{
-    margin-top: 2rem;
 }
