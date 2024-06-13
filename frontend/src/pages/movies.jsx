@@ -13,7 +13,7 @@ import Filter from '../components/Filter';
 
 
 export async function loader() {
-  const movies = await MovieAPI.getAllBatch(1, 250);
+  const movies = await MovieAPI.getAllBatch(3, 250);
   const categorys = {};
   movies.forEach((movie) => {
     const {Genre,Id} = movie
@@ -63,34 +63,65 @@ const MoviesPage = () => {
   // to get an element from list: list.find()
   // to use map on object, convert to to list first: Object.values()
   // list.length gives number of items
-  return (
+  if (user !== null){
+    return (
+      <Page title={"Movies"}>
+          <Filter movies = {movies} onChange={onChangeFilter}></Filter>
+          { 
+            Object.entries(categorys).map(([categoryTitle, movieIds]) => (
+              <Page title = {`${categoryTitle} (${movieIds.length})`}>
+                <List>
+                  {/* {console.log(categorys)} */ }
+                  {movieIds
+                    .map((_Id) => moviesById[_Id]) // map ids to movies
+                    .filter((movie) => {
+                      const value = movie[filter.key]
+                      if (filter.key == "Genre") return value.includes(filter.value)
+                      return (value == filter.value);
+                    })
+                    .map((movie) => {
+                      // console.log(movie)
+                      return (
+                        <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
+                      );
+                    })
+                  }
+                </List>
+              </Page>
+            ))
+          }
+      </Page>
+    );
+  }else{
+    return(
     <Page title={"Movies"}>
-        <Filter movies = {movies} onChange={onChangeFilter}></Filter>
-        { 
-          Object.entries(categorys).map(([categoryTitle, movieIds]) => (
-            <Page title = {`${categoryTitle} (${movieIds.length})`}>
-              <List>
-                {/* {console.log(categorys)} */ }
-                {movieIds
-                  .map((_Id) => moviesById[_Id]) // map ids to movies
-                  .filter((movie) => {
-                    const value = movie[filter.key]
-                    if (filter.key == "Genre") return value.includes(filter.value)
-                    return (value == filter.value);
-                  })
-                  .map((movie) => {
-                    // console.log(movie)
-                    return (
-                      <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
-                    );
-                  })
-                }
-              </List>
-            </Page>
-          ))
-        }
-    </Page>
-  );
+          { 
+            Object.entries(categorys).map(([categoryTitle, movieIds]) => (
+              <Page title = {`${categoryTitle} (${movieIds.length})`}>
+                <List>
+                  {/* {console.log(categorys)} */ }
+                  {movieIds
+                    .map((_Id) => moviesById[_Id]) // map ids to movies
+                    .filter((movie) => {
+                      const value = movie[filter.key]
+                      if (filter.key == "Genre") return value.includes(filter.value)
+                      return (value == filter.value);
+                    })
+                    .map((movie) => {
+                      // console.log(movie)
+                      return (
+                        <Mycomp movie1={movie} key={`movie-list-item-${movie.Id}`} />
+                      );
+                    })
+                  }
+                </List>
+              </Page>
+            ))
+          }
+      </Page>
+    );
+  }
+  
 };
 
 export default MoviesPage;

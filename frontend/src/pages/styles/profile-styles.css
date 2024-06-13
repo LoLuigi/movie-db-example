@@ -23,4 +23,11 @@
     --bs-btn-disabled-color: var(--text1);
     --bs-btn-disabled-bg: var(--text2);
     --bs-btn-disabled-border-color: var(--text1);
+    
+}
+.eye{
+    margin-left: 1rem;
+}
+.cancel{
+    margin-left: 1rem;
 }

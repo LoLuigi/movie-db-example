@@ -6,9 +6,12 @@ import './Root.css';
 import './components/Themes/styles.css'
 import Themes from './components/Themes';
 import ThemeContext from './config/themeContext';
+import UserContext from './config/userContext';
 
 const Root = () => {
   const [theme, setTheme] = useContext(ThemeContext)
+  const [user, setUser] = useContext(UserContext)
+
   const onThemeChange = useCallback((key) =>{
     const { target: {value}} = key
     setTheme(value)
@@ -19,7 +22,7 @@ const Root = () => {
   <div className={theme}>
     <Header/>
     <div className='app-root'>
-      <Themes onChange={onThemeChange}></Themes>
+      <Themes theme={theme} onChange={onThemeChange} user={user}></Themes>
       <Outlet />
     </div>
   </div>

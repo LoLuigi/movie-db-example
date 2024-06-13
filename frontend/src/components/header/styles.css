@@ -7,6 +7,10 @@
   color: var(--title);
   background-color: var(--bg);  
 }
+.navbar-brand:hover{
+  color: var(--title);
+  background-color: var(--bg);  
+}
 a{
   color:var(--title);
   text-decoration: underline;

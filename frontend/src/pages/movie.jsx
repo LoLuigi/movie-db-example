@@ -37,6 +37,7 @@ const MoviePage = () => {
         <div className='column2'>
           <p className='title'>Description:</p>
           <p>{movie.Description}</p>
+          <li>Director: {movie.Director} </li>
           <li>Duration: {movie["Duration (min)"]} min</li>
           <li>Genre: {movie.Genre}</li>
           <li>Rating: {movie.Rating}</li>
@@ -44,9 +45,6 @@ const MoviePage = () => {
         </div>
       </div>
       <div className='wrapper2'>
-        <div className='column1'>
-          {movie.Director}
-        </div>
         <div className='review'> <p className='title'> Review: {review["Review Title"]} </p> <p className='reviewText'>{review.Review}</p></div>
       </div>
     </Page>

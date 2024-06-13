@@ -55,6 +55,11 @@ const Filter = (props) => {
                 default:
             }
         });
+        if (value == "3"){
+            setAllOptions(allOptions.sort().reverse())
+        }else{
+            setAllOptions(allOptions.sort())
+        }
         setAllOptions([...new Set(allOptions)]);
         //console.log([...new Set(allOptions)])
             

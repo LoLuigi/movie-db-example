@@ -6,7 +6,6 @@ class UsersController {
     console.log(`UsersReviewsController.postUser`);
     const { useremail } = req.query
     const users = await readCsvFile('/data/users.csv');
-    console.log(useremail)
     users.map((user)=>{
       if (JSON.stringify(user.email) === JSON.stringify(useremail)){
         result = user;
@@ -64,6 +63,24 @@ class UsersController {
         body.email=null
         console.log("Login failed");
       }
+    res.json(body.email)
+    return;
+  }
+
+  static async edit(req, res){
+    console.log("Edit req")
+    const users = await readCsvFile('/data/users.csv')
+    const { body } = req;
+    const user = users.find((user)=>{
+      return user.email === body.email
+    })
+    var index = users.indexOf(user);
+    if (index > -1) {
+      users.splice(index, 1);
+    }
+    users.push(body);
+    await writeCsvFile("/data/users.csv", users);
+    // console.log(users)
     res.json(body.email)
     return;
   }

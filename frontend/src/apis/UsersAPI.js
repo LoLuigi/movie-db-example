@@ -5,6 +5,7 @@ async function jsonFetch(url) {
   return fetch(url)
     .then((response) => response.json())
 }
+
 async function jsonPost(url, data) {
   return fetch(url, {
     method: 'POST',
@@ -28,6 +29,10 @@ async function postCreate(userData) {
   const url = `${baseUrl}/create`
     return jsonPost(url, userData);
   }
+  async function postEdit(userData) {
+    const url = `${baseUrl}/edit`
+      return jsonPost(url, userData);
+  }
 
 async function getUser(user) {
   const url = `${baseUrl}?useremail=${user}`;
@@ -36,6 +41,7 @@ async function getUser(user) {
 
 const API = {
   postLogin,
+  postEdit,
   getUser,
   postCreate,
   jsonFetch,

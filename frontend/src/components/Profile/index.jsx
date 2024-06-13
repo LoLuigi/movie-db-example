@@ -30,6 +30,10 @@ export default function Profile(props) {
         props.logOut()
     })
 
+    const onEdit = useCallback((load)=>(click) =>{
+        props.edit()
+    })
+
 
     return (
         <section className="vh-100">
@@ -42,7 +46,8 @@ export default function Profile(props) {
                     style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
                     {/* <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                         alt="Avatar" className="my-5" fluid /> */}
-                    <MDBTypography tag="h5" className='card-text'>{`Hello ${userInformation.firstName} ${userInformation.lastName}`}</MDBTypography>
+                    <MDBTypography tag="h5" className='card-text'>{`Hello`}</MDBTypography>
+                    <MDBTypography tag="h5" className='card-text'>{`${userInformation.firstName} ${userInformation.lastName}`}</MDBTypography>
                     <MDBIcon far icon="edit mb-5" />
                     </MDBCol>
                     <MDBCol md="8">
@@ -58,13 +63,9 @@ export default function Profile(props) {
                             <MDBTypography tag="h6">Birthday</MDBTypography>
                             <MDBCardText className="text-muted">{userInformation.age}</MDBCardText>
                         </MDBCol>
+                        <Link to={'/profile'}><button onClick={onEdit()} className='logOut'>Edit Profile</button></Link>
                         <Link to={'/profile'}><button onClick={onLogOut()} className='logOut'>Log Out</button></Link>
                         </MDBRow>
-                        <div className="d-flex justify-content-start">
-                        <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>
-                        <a href="#!"><MDBIcon fab icon="twitter me-3" size="lg" /></a>
-                        <a href="#!"><MDBIcon fab icon="instagram me-3" size="lg" /></a>
-                        </div>
                     </MDBCardBody>
                     </MDBCol>
                 </MDBRow>
